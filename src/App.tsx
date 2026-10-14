@@ -61,7 +61,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-surface-50">
+    <div className="min-h-screen bg-surface-50 flex">
       {/* Mobile sidebar overlay */}
       {sidebarOpen && (
         <div 
@@ -72,11 +72,11 @@ export default function App() {
 
       {/* Sidebar */}
       <aside className={`
-        fixed top-0 left-0 h-full w-72 bg-white border-r border-surface-200 z-50
+        fixed top-0 left-0 h-screen w-72 bg-white border-r border-surface-200 z-50
         transform transition-transform duration-300 ease-in-out
         ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'}
-        lg:translate-x-0 lg:static lg:z-auto
-        overflow-y-auto
+        lg:translate-x-0 lg:sticky lg:top-0 lg:left-auto lg:z-auto lg:flex-shrink-0
+        overflow-y-auto self-start
       `}>
         <div className="p-6">
           {/* Logo */}
@@ -130,7 +130,7 @@ export default function App() {
       </aside>
 
       {/* Main content */}
-      <main className="lg:ml-0">
+      <main className="flex-1 min-w-0 flex flex-col">
         {/* Top bar */}
         <header className="sticky top-0 z-30 bg-white/80 backdrop-blur-lg border-b border-surface-200">
           <div className="flex items-center justify-between px-4 lg:px-8 py-4">
@@ -157,7 +157,7 @@ export default function App() {
         </header>
 
         {/* Content */}
-        <div className="max-w-4xl mx-auto px-4 lg:px-8 py-8 lg:py-12">
+        <div className="w-full px-4 lg:px-10 xl:px-16 py-8 lg:py-12">
           
           {/* HERO SECTION */}
           <section id="hero" className="scroll-mt-20 mb-16">
